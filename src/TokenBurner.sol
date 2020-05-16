@@ -23,7 +23,7 @@ contract BurntToken {
 }
 
 contract TokenBurner {
-    function burn(BurntToken token) public {
-        token.burn(token.balanceOf(address(this)));
+    function burn(address token) public {
+        BurntToken(token).burn(BurntToken(token).balanceOf(address(this)));
     }
 }
