@@ -1,4 +1,4 @@
-/// pit.sol -- a simple token burner
+/// TokenBurner.sol -- a simple token burner
 
 // Copyright (C) 2017  Rain Break <rainbreak@riseup.net>
 
@@ -17,10 +17,13 @@
 
 pragma solidity ^0.5.15;
 
-import "ds-token/token.sol";
+contract BurntToken {
+    function burn(uint) public;
+    function balanceOf(address) public view returns (uint);
+}
 
-contract GemPit {
-    function burn(DSToken gem) public {
-        gem.burn(gem.balanceOf(address(this)));
+contract TokenBurner {
+    function burn(BurntToken token) public {
+        token.burn(token.balanceOf(address(this)));
     }
 }
