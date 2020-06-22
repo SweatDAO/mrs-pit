@@ -15,11 +15,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-pragma solidity ^0.5.15;
+pragma solidity ^0.6.7;
 
-contract BurntToken {
-    function burn(uint) public;
-    function balanceOf(address) public view returns (uint);
+abstract contract BurntToken {
+    function burn(uint) virtual public;
+    function balanceOf(address) virtual public view returns (uint);
 }
 
 contract TokenBurner {
